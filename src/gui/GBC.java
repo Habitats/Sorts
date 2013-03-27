@@ -1,7 +1,5 @@
 package gui;
 
-
-
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
@@ -14,7 +12,7 @@ import java.awt.Insets;
 public class GBC extends GridBagConstraints {
 
 	public enum Align {
-		LEFT, RIGHT, MID, TIGHT, BOTTOM, LEFT_BOTTOM, MID_BOTTOM, RIGHT_BOTTOM, ALONE, FULL_WIDTH, FULL_WIDTH_BOTTOM, NONE, TOP_AND_BOTTOM, NOT_RIGHT, NOT_LEFT, NOT_BOTTOM, NOT_TOP;
+		LEFT, RIGHT, MID, TIGHT, BOTTOM, LEFT_BOTTOM, MID_BOTTOM, RIGHT_BOTTOM, ALONE, FULL_WIDTH, FULL_WIDTH_BOTTOM, NONE, TOP_AND_BOTTOM, NOT_RIGHT, NOT_LEFT, NOT_BOTTOM, NOT_TOP, LEFT_TOP, RIGHT_TOP, MID_TOP;
 	}
 
 	public GBC(int gridx, int gridy, Align align) {
@@ -24,9 +22,9 @@ public class GBC extends GridBagConstraints {
 		// for even borders
 		int b = 5;
 		if (align != null) {
-			if (align == Align.RIGHT)
+			if (align == Align.RIGHT || align == Align.RIGHT_TOP)
 				setInsets(b, b, 0, b);
-			else if (align == Align.MID || align == Align.LEFT)
+			else if (align == Align.MID || align == Align.LEFT || align == Align.LEFT_TOP || align == Align.MID_TOP)
 				setInsets(b, b, 0, 0);
 			else if (align == Align.FULL_WIDTH)
 				setInsets(b, b, 0, b);

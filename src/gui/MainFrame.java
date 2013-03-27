@@ -1,6 +1,6 @@
 package gui;
 
-import gui.view.NationalitySorter;
+import gui.view.MovieView;
 import gui.view.SortsWindow;
 import gui.view.SortsWindow.SortsWindowType;
 
@@ -17,9 +17,9 @@ import javax.swing.UIManager;
 
 public class MainFrame extends JFrame {
 
-	private NationalitySorter nationalityView;
+	private MovieView nationalityView;
 	private HashMap<SortsWindowType, SortsWindow> views;
-	private int frameWidth = 800;
+	private int frameWidth = 900;
 	private int frameHeight = 600;
 
 	public MainFrame() {
@@ -29,7 +29,7 @@ public class MainFrame extends JFrame {
 			e.printStackTrace();
 		}
 		views = new HashMap<SortsWindowType, SortsWindow>();
-		nationalityView = new NationalitySorter(this);
+		nationalityView = new MovieView(this);
 		JLayeredPane layeredPane = buildLayeredPane();
 		getContentPane().add(layeredPane);
 

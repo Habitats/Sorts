@@ -29,6 +29,10 @@ public class Release {
 		this.nationality = nationality;
 	}
 
+	public Release(String name) {
+		this(name, null);
+	}
+
 	public String getGroup() {
 		return group;
 	}

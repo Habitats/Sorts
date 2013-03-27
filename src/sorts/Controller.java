@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import model.NationalityModel;
+import model.MovieModel;
 import model.SortsModel;
 
 public class Controller {
@@ -19,7 +19,7 @@ public class Controller {
 	public Controller() {
 
 		MainFrame mainFrame = new MainFrame();
-		nationalityModel = new NationalityModel(this,mainFrame.getViews().get(SortsWindowType.NATIONALITY_SORTER));
+		nationalityModel = new MovieModel(this, mainFrame.getViews().get(SortsWindowType.NATIONALITY_SORTER));
 		mainFrame.getViews().get(SortsWindowType.NATIONALITY_SORTER).setModel(nationalityModel);
 
 		// DatabaseConnection dbConn = new DatabaseConnection();
@@ -40,8 +40,12 @@ public class Controller {
 		}
 	}
 
-	public void log(String str) {
-		((NationalityModel) nationalityModel).addLine(str);
+	public void addRelease(Release rls) {
+		((MovieModel) nationalityModel).addRelease(rls);
+	}
+
+	public synchronized void log(String str) {
+		((MovieModel) nationalityModel).addLine(str);
 		System.out.println(str);
 	}
 
